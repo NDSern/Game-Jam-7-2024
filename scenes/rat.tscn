@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://b0764ko03vg2d"]
 
-[ext_resource type="Texture2D" path="res://art/Rat placeholder sprite sheet.png" id="1_cv6h6"]
+[ext_resource type="Texture2D" uid="uid://duhhrk77w474r" path="res://art/Rat placeholder sprite sheet.png" id="1_cv6h6"]
 [ext_resource type="Script" path="res://script/rat.gd" id="1_ge47r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir188"]
