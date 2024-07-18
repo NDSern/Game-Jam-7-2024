@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b0764ko03vg2d"]
 
-[ext_resource type="Texture2D" uid="uid://dxgq6bxifutv8" path="res://art/slime walk.png" id="1_2ag3o"]
+[ext_resource type="Texture2D" path="res://art/slime walk.png" id="1_2ag3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0edr"]
 atlas = ExtResource("1_2ag3o")
@@ -116,7 +116,7 @@ radius = 213.038
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_li1s4")
-animation = &"running_left"
+animation = &"running_right"
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

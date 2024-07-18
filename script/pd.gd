@@ -11,21 +11,21 @@ func _physics_process(delta):
 	player_movement(delta)
 
 func player_movement(delta):
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("Right"):
 		curr_dirr="right"
 		play_anim(0)
 		velocity.x=SPEED
 		velocity.y=0
-	elif Input.is_action_pressed("move_left"):
+	elif Input.is_action_pressed("Left"):
 		curr_dirr="left"
 		play_anim(0)
 		velocity.x=-SPEED
 		velocity.y=0
-	elif Input.is_action_pressed("move_up"):
+	elif Input.is_action_pressed("Up"):
 		play_anim(0)
 		velocity.x=0
 		velocity.y=-SPEED
-	elif Input.is_action_pressed("move_down"):
+	elif Input.is_action_pressed("Down"):
 		play_anim(0)
 		velocity.x=0
 		velocity.y=SPEED
@@ -52,6 +52,3 @@ func play_anim(mode):
 			anim.play("moveRight")
 		elif mode==1:
 			anim.play("idle")
-		
-		
-			
