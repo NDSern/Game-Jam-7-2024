@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0764ko03vg2d"]
+[gd_scene load_steps=18 format=3 uid="uid://b0764ko03vg2d"]
 
-[ext_resource type="Texture2D" uid="uid://duhhrk77w474r" path="res://art/Rat placeholder sprite sheet.png" id="1_cv6h6"]
+[ext_resource type="Texture2D" path="res://art/Rat placeholder sprite sheet.png" id="1_cv6h6"]
+[ext_resource type="Script" path="res://script/rat.gd" id="1_ge47r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir188"]
 atlas = ExtResource("1_cv6h6")
@@ -112,6 +113,7 @@ height = 28.0
 radius = 213.038
 
 [node name="Rat2D" type="CharacterBody2D"]
+script = ExtResource("1_ge47r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
@@ -137,6 +139,5 @@ autostart = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 
-[connection signal="body_entered" from="Detection Area" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Detection Area" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Detection Area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Detection Area" to="." method="_on_detection_area_body_exited"]

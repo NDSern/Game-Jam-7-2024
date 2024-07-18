@@ -460,6 +460,7 @@ position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_4ntrx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bwppj")
 animation = &"idle"
 frame_progress = 0.538335
