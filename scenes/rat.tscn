@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0764ko03vg2d"]
+[gd_scene load_steps=17 format=3 uid="uid://b0764ko03vg2d"]
 
 [ext_resource type="Texture2D" uid="uid://dxgq6bxifutv8" path="res://art/slime walk.png" id="1_2ag3o"]
-[ext_resource type="Texture2D" uid="uid://b62r2qs4h4btn" path="res://icon.svg" id="3_hgkq4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0edr"]
 atlas = ExtResource("1_2ag3o")
@@ -137,9 +136,6 @@ autostart = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_hgkq4")
 
 [connection signal="body_entered" from="Detection Area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Detection Area" to="." method="_on_area_2d_body_exited"]
