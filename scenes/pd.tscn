@@ -1,5 +1,6 @@
-[gd_scene load_steps=62 format=3 uid="uid://dxntgechq8xb5"]
+[gd_scene load_steps=63 format=3 uid="uid://dxntgechq8xb5"]
 
+[ext_resource type="Script" path="res://script/pd.gd" id="1_6c3nn"]
 [ext_resource type="Texture2D" uid="uid://pcuhvxqfpfrs" path="res://art/Plague Doctor Sprite Sheet.png" id="1_48bod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhnle"]
@@ -449,10 +450,11 @@ animations = [{
 }]
 
 [node name="PD" type="CharacterBody2D"]
+script = ExtResource("1_6c3nn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bwppj")
-animation = &"takeDmg"
-frame_progress = 0.911017
+animation = &"idle"
+frame_progress = 0.538335
