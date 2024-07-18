@@ -6,10 +6,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntrx"]
 height = 26.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8tbjs"]
-radius = 9.0
-height = 26.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhnle"]
 atlas = ExtResource("1_48bod")
 region = Rect2(0, 0, 32, 32)
@@ -461,13 +457,11 @@ script = ExtResource("1_4im6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
-
 shape = SubResource("CapsuleShape2D_4ntrx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bwppj")
-
 animation = &"idle"
 frame_progress = 0.538335
 
@@ -475,3 +469,4 @@ frame_progress = 0.538335
 wait_time = 2.0
 one_shot = true
 
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]

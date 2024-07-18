@@ -6,7 +6,6 @@
 [node name="World" type="Node2D"]
 
 [node name="PD" parent="." instance=ExtResource("2_4vfoc")]
-
 position = Vector2(190, 205)
 
 [node name="Rat2D" parent="." instance=ExtResource("1_g5auy")]
