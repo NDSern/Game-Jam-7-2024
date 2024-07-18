@@ -1,5 +1,6 @@
 [gd_scene load_steps=65 format=3 uid="uid://dxntgechq8xb5"]
 
+[ext_resource type="Script" path="res://script/pd.gd" id="1_6c3nn"]
 [ext_resource type="Texture2D" uid="uid://pcuhvxqfpfrs" path="res://art/Plague Doctor Sprite Sheet.png" id="1_48bod"]
 [ext_resource type="Script" path="res://scenes/pd.gd" id="1_co78r"]
 
