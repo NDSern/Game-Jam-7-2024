@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://chtb4fjh2l8pr"]
+[gd_scene load_steps=3 format=3 uid="uid://chtb4fjh2l8pr"]
+
+[ext_resource type="PackedScene" uid="uid://wl4t30yxy1hh" path="res://scenes/rat.tscn" id="1_dhje7"]
+[ext_resource type="PackedScene" uid="uid://dxntgechq8xb5" path="res://scenes/pd.tscn" id="2_v1oo5"]
 
 [node name="World" type="Node2D"]
+
+[node name="Rat2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_dhje7")]
+position = Vector2(250, 354)
+player = NodePath("../PD")
+
+[node name="PD" parent="." instance=ExtResource("2_v1oo5")]
+position = Vector2(847, 203)
