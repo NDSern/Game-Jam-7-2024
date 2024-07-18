@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" path="res://script/pd.gd" id="1_6c3nn"]
 [ext_resource type="Texture2D" uid="uid://pcuhvxqfpfrs" path="res://art/Plague Doctor Sprite Sheet.png" id="1_48bod"]
+[ext_resource type="Script" path="res://scenes/pd.gd" id="1_co78r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e374f"]
+radius = 26.0
+height = 76.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8tbjs"]
 radius = 9.0
@@ -86,6 +91,10 @@ region = Rect2(192, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uwq4"]
 atlas = ExtResource("1_48bod")
 region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlvi8"]
+atlas = ExtResource("1_48bod")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vl1l6"]
 atlas = ExtResource("1_48bod")
@@ -317,6 +326,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tlvi8")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vl1l6")
 }, {
 "duration": 1.0,
@@ -454,13 +466,15 @@ animations = [{
 }]
 
 [node name="PD" type="CharacterBody2D"]
-script = ExtResource("1_6c3nn")
+script = ExtResource("1_co78r")
+speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_8tbjs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bwppj")
 animation = &"plagueNade"
 frame = 10
