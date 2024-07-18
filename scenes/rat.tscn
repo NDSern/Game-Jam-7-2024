@@ -49,12 +49,14 @@ region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ateoa"]
 atlas = ExtResource("1_cv6h6")
+
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_li1s4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+
 "texture": SubResource("AtlasTexture_ir188")
 }, {
 "duration": 1.0,
@@ -65,6 +67,7 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jgsux")
+
 }],
 "loop": true,
 "name": &"idle",
@@ -72,6 +75,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+
 "texture": SubResource("AtlasTexture_ipy1v")
 }, {
 "duration": 1.0,
@@ -82,6 +86,7 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_umsay")
+
 }],
 "loop": true,
 "name": &"running_left",
@@ -89,6 +94,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+
 "texture": SubResource("AtlasTexture_tbgre")
 }, {
 "duration": 1.0,
@@ -99,6 +105,7 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ateoa")
+
 }],
 "loop": true,
 "name": &"running_right",
@@ -113,7 +120,9 @@ height = 28.0
 radius = 213.038
 
 [node name="Rat2D" type="CharacterBody2D"]
+
 script = ExtResource("1_ge47r")
+
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
@@ -139,5 +148,7 @@ autostart = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 
+
 [connection signal="body_entered" from="Detection Area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection Area" to="." method="_on_detection_area_body_exited"]
+
