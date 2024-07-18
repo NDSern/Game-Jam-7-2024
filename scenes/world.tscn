@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://chtb4fjh2l8pr"]
+[gd_scene load_steps=3 format=3 uid="uid://cnnjfojeruowj"]
 
 [ext_resource type="PackedScene" uid="uid://b0764ko03vg2d" path="res://scenes/rat.tscn" id="1_g5auy"]
 [ext_resource type="PackedScene" uid="uid://dxntgechq8xb5" path="res://scenes/pd.tscn" id="2_4vfoc"]
@@ -6,7 +6,8 @@
 [node name="World" type="Node2D"]
 
 [node name="PD" parent="." instance=ExtResource("2_4vfoc")]
-position = Vector2(301, 261)
+
+position = Vector2(190, 205)
 
 [node name="Rat2D" parent="." instance=ExtResource("1_g5auy")]
-position = Vector2(752, 391)
+position = Vector2(551, 308)

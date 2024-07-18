@@ -1,54 +1,52 @@
 extends CharacterBody2D
 
+@export var speed = 100.0
+var screen_size
+var idle = false
+var idle_animation = false
 
-const SPEED = 100.0
-var curr_dirr ="none"
-
+# Control currently added
+# Up Down Left Right Attack(Left Mouse)
 func _ready():
-	$AnimatedSprite2D.play("idle")
+	screen_size = get_viewport_rect().size
 
-func _physics_process(delta):
-	player_movement(delta)
-
-func player_movement(delta):
+func _process(delta):
+	var velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("Right"):
-		curr_dirr="right"
-		play_anim(0)
-		velocity.x=SPEED
-		velocity.y=0
-	elif Input.is_action_pressed("Left"):
-		curr_dirr="left"
-		play_anim(0)
-		velocity.x=-SPEED
-		velocity.y=0
-	elif Input.is_action_pressed("Up"):
-		play_anim(0)
-		velocity.x=0
-		velocity.y=-SPEED
-	elif Input.is_action_pressed("Down"):
-		play_anim(0)
-		velocity.x=0
-		velocity.y=SPEED
-	else:
-		play_anim(1)
-		velocity.x=0
-		velocity.y=0
+		velocity.x += 1
+	if Input.is_action_pressed("Left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("Down"):
+		velocity.y += 1
+	if Input.is_action_pressed("Up"):
+		velocity.y -= 1
 		
-	move_and_slide()
+	if velocity.length() == 0:
+		if not idle:
+			$AnimatedSprite2D.stop()
+			idle = true
+			#print("idle")
+			$IdleTimer.start(2)
 	
-func play_anim(mode):
-	var dir=curr_dirr	
-	var anim = $AnimatedSprite2D
+	if idle_animation:
+		$AnimatedSprite2D.play("idle")
+
+	if velocity.length() > 0:
+		idle = false
+		idle_animation = false
+		$IdleTimer.stop()
+		velocity = velocity.normalized() * speed
+		$AnimatedSprite2D.play()
 	
-	if dir=="right":
-		anim.flip_h=false
-		if mode==0:
-			anim.play("moveRight")
-		elif mode==1:
-			anim.play("idle")
-	else:
-		anim.flip_h=true
-		if mode==0:
-			anim.play("moveRight")
-		elif mode==1:
-			anim.play("idle")
+	position += velocity * delta
+	position = position.clamp(Vector2.ZERO, screen_size)
+	
+	if velocity.x != 0 or velocity.y != 0:
+		$AnimatedSprite2D.animation = "moveRight"
+		$AnimatedSprite2D.flip_v = false
+		# See the note below about boolean assignment.
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+
+func _on_idle_timer_timeout():
+	#print("play idle animation")
+	idle_animation = true
