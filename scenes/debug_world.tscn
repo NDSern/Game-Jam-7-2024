@@ -631,4 +631,3 @@ target = NodePath("../PD")
 
 [node name="PD" parent="." instance=ExtResource("3_qjbxe")]
 position = Vector2(954, 354)
-speed = 300.0

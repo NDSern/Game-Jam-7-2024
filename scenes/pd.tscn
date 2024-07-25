@@ -3,9 +3,6 @@
 [ext_resource type="Script" path="res://script/pd.gd" id="1_4im6g"]
 [ext_resource type="Texture2D" uid="uid://pcuhvxqfpfrs" path="res://art/Plague Doctor Sprite Sheet.png" id="1_48bod"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntrx"]
-height = 26.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhnle"]
 atlas = ExtResource("1_48bod")
 region = Rect2(0, 0, 32, 32)
@@ -452,14 +449,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6r1qx"]
+radius = 17.1172
+
 [node name="PD" type="CharacterBody2D"]
 script = ExtResource("1_4im6g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
-shape = SubResource("CapsuleShape2D_4ntrx")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bwppj")
 animation = &"idle"
@@ -468,5 +465,17 @@ frame_progress = 0.538335
 [node name="IdleTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)
+zoom = Vector2(1.5, 1.5)
+limit_left = 2
+limit_top = -35
+limit_right = 1700
+limit_bottom = 877
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 25)
+shape = SubResource("CircleShape2D_6r1qx")
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]

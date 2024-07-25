@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 100.0
+@export var speed = 300.0
 var screen_size
 var idle = false
 var idle_animation = false
